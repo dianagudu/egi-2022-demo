@@ -1,0 +1,25 @@
+# extended LDIF
+#
+# LDAPv3
+# base <dc=demo,dc=egi> with scope subtree
+# filter: (objectclass=*)
+# requesting: ALL
+#
+
+# demo.egi
+dn: dc=demo,dc=egi
+objectClass: dcObject
+objectClass: organization
+dc: demo
+o: EGI
+
+# users, demo.egi
+dn: ou=users,dc=demo,dc=egi
+objectClass: organizationalUnit
+ou: users
+
+# groups, demo.egi
+dn: ou=groups,dc=demo,dc=egi
+objectClass: organizationalUnit
+ou: groups
+
