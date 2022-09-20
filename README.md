@@ -12,7 +12,11 @@ The following use cases are supported:
 
 Go to [approval/](approval) folder.
 
-You'll first need to configure an email notifier. You can use Google, just add your google email address, as well as the API password to `config_files/feudal_adapter.conf`, in `[notifier.email]` section.
+You'll first need to configure an email notifier. The config file is configured to use Google, but you'll need to change a few things in `config_files/feudal_adapter.conf`, in the `[notifier.email]` section (look for the string `CHANGEME`):
+
+- your google email address to send the emails from
+- your google account's API password that you'll need to set up with google
+- the email address of the admin that will receive the requests and approve/reject them
 
 You can modify the ports for SSH & motley-cue in `.env`.
 
