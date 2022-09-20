@@ -10,10 +10,8 @@ networks:
     driver: bridge
 
 services:
-  motley_cue_pam_ssh_dev:
-    build:
-      context: .
-      target: motley_cue_pam_ssh_dev
+  ssh_oidc:
+    image: ddgu/ssh_oidc:unix
     init: true
     restart: on-failure
     ports:
@@ -29,9 +27,7 @@ services:
       - my-network
 
   nginx:
-    build:
-      context: .
-      target: nginx
+    image: ddgu/nginx:motley_cue
     restart: on-failure
     hostname: "mc_endpoint"
     ports:

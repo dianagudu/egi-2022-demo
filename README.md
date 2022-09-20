@@ -27,7 +27,7 @@ mccli --mc-endpoint localhost:8001 --oidc egi-keycloak ssh -p 2201 localhost
 You should have received a notification for the request to deploy a local user. To accept it, execute the following in the appropriate container (add your own `sub`):
 
 ```bash
-docker-compose exec -it motley_cue_pam_ssh_dev bash
+docker-compose exec -it ssh_oidc bash
 
 echo '{
     "state_target": "accepted",

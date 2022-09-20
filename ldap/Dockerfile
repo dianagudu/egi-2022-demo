@@ -1,4 +1,4 @@
-FROM debian:bullseye as motley_cue_pam_ssh_dev
+FROM debian:bullseye as ssh_oidc_ldap
 
 ##### install dependencies
 ENV DEBIAN_FRONTEND=noninteractive
@@ -56,7 +56,7 @@ ENTRYPOINT [ "/srv/entrypoint.sh" ]
 CMD ["/srv/runner.sh"]
 
 
-FROM nginx:alpine as nginx
+FROM nginx:alpine as nginx_motley_cue
 RUN rm /etc/nginx/conf.d/default.conf \
     && ln -s /config_files/nginx.motley_cue /etc/nginx/conf.d/default.conf
 EXPOSE 8080
