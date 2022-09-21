@@ -38,6 +38,8 @@ RUN mkdir /etc/motley_cue /var/log/motley_cue /run/motley_cue /var/lib/motley_cu
     && ln -s  /config_files/templates /etc/motley_cue/templates
 ENV PYTHONUNBUFFERED 1
 ENV FEUDAL_ADAPTER_CONFIG=/etc/motley_cue/feudal_adapter.conf
+# fix long tokens issue
+RUN sed -i 's/header.lstrip("Bearer ")/header.lstrip("Bearer").lstrip()/g'  /usr/local/lib/python3.9/dist-packages/motley_cue/mapper/token_manager.py
 
 #### LDAP client config
 COPY nslcd.conf /etc/nslcd.conf
